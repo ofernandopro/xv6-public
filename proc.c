@@ -815,11 +815,10 @@ void pinfo(struct pstat* pt) {
 
     acquire(&ptable.lock);
     int i = 0;
-    for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) { // go through procs
+    for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
         if (p->state == UNUSED) continue;
         pt->pid[i] = p->pid;
         pt->tickets[i] = p->tickets;
-        pt->ticks[i] = p->ticks; // TODO: no clue how track ticks
         i++;
     }
     pt->num_processes = i + 1;
