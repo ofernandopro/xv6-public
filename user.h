@@ -1,4 +1,5 @@
 struct stat;
+struct pstat;
 struct rtcdate;
 
 // system calls
@@ -26,6 +27,7 @@ int uptime(void);
 int wait2(int*, int*, int*);
 int user_yield(void);
 int set_tickets(int);
+int getpinfo(struct pstat*);
 
 // ulib.c
 int stat(const char*, struct stat*);
