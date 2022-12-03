@@ -7,7 +7,6 @@
 #include "proc.h"
 #include "spinlock.h"
 #include "rand.h"
-#include "pstat.h"
 
 static int all_tickets = 0;
 
