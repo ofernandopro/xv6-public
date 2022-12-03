@@ -7,6 +7,7 @@
 #include "proc.h"
 #include "spinlock.h"
 #include "rand.h"
+#include "pstat.h"
 
 static int all_tickets = 0;
 
@@ -806,4 +807,20 @@ set_tickets(int tickets) {
   myproc()->tickets = tickets;  
   //cprintf("Tickets -> %d\n", myproc()->tickets);
   return 0;
+}
+
+
+void pinfo(struct pstat* pt) {
+    struct proc* p;
+
+    acquire(&ptable.lock);
+    int i = 0;
+    for (p = ptable.proc; p < &ptable.proc[NPROC]; p++) {
+        if (p->state == UNUSED) continue;
+        pt->pid[i] = p->pid;
+        pt->tickets[i] = p->tickets;
+        i++;
+    }
+    pt->num_processes = i + 1;
+    release(&ptable.lock);
 }
