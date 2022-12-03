@@ -36,7 +36,6 @@ int main(int argc, char* argv[])  {
         turnaroundTime[i] = 0;
     }
 
-    int procTickets = {10, 30, 20};
 
     for (i = 0; i < 3 * n; i++) {
         int pid = fork();
