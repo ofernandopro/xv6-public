@@ -23,5 +23,4 @@
 #define SYS_wait2  22
 #define SYS_user_yield 23
 #define SYS_set_tickets 24
-#define SYS_getpinfo   25
 

@@ -185,7 +185,6 @@ UPROGS=\
 	_wait2test\
 	_sanity\
 	_setticketstest\
-	_lotteryTest\
 
 fs.img: mkfs README $(UPROGS)
 	./mkfs fs.img README $(UPROGS)

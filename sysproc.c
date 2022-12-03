@@ -6,7 +6,6 @@
 #include "memlayout.h"
 #include "mmu.h"
 #include "proc.h"
-#include "pstat.h"
 
 int
 sys_fork(void)
@@ -138,14 +137,4 @@ int sys_set_tickets(void) {
 
     myproc()->tickets = tickets;
     return 0;
-}
-
-int sys_getpinfo(void) {
-    struct pstat* pt;
-
-    if(argptr(0, (void*)&pt, sizeof(struct pstat*)) < 0)
-        return -1;
-
-    pinfo(pt);
-    return 0; // use function in proc.c for access to ptable
 }
